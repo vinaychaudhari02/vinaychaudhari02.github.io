@@ -1,2 +1,0 @@
-# vinaychaudhari.github.io
-Resume
