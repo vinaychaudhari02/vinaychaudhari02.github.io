@@ -20,7 +20,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NYWM62ET3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-2NYWM62ET3');
   </script>
@@ -28,6 +28,12 @@
   <title>Vinay Chaudhari | Portfolio</title>
 </head>
 <body>
+  <!--==================== FLOATING BACKGROUND IMAGES ====================-->
+  <div class="floating-images">
+      <img src="assets/img/floating1.png" class="floating-img floating-img-1" alt="Floating Shape">
+      <img src="assets/img/floating2.png" class="floating-img floating-img-2" alt="Floating Shape">
+      <img src="assets/img/floating3.png" class="floating-img floating-img-3" alt="Floating Shape">
+  </div>
   <!--==================== HEADER ====================-->
   <header class="header" id="header">
     <nav class="nav container">
@@ -766,7 +772,6 @@
       </div>
     </section>
 
-
     <!--==================== QUALIFICATION ====================-->
     <section class="qualification section">
       <h2 class="section__title">Qualification</h2>
@@ -1380,5 +1385,27 @@
   <script src="assets/js/swiper-bundle.min.js"></script>
   <!--==================== MAIN JS ====================-->
   <script src="assets/js/main.js"></script>
+
+  <!--==================== FLOATING IMAGES JS ====================-->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to dynamically change floating image sizes
+        function updateFloatingImages() {
+            const images = document.querySelectorAll(".floating-img");
+
+            images.forEach((img) => {
+                // Generate a random size between 100px and 200px
+                const newSize = Math.floor(Math.random() * 100) + 100;
+                img.style.setProperty("--floating-img-size", `${newSize}px`);
+            });
+        }
+
+        // Update image sizes every 10 seconds
+        setInterval(updateFloatingImages, 10000);
+
+        // Initial call
+        updateFloatingImages();
+    });
+  </script>
 </body>
 </html>
