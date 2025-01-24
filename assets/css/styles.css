@@ -55,6 +55,9 @@
     --z-tooltip: 10;
     --z-fixed: 100;
     --z-modal: 1000;
+
+    /*========== Floating Images ==========*/
+    --floating-img-size: 100px; /* Default size */
 }
 
 /* Font size for large devices */
@@ -155,6 +158,71 @@ img{
 .section__title,
 .section__subtitle{
     text-align: center;
+}
+
+/*==================== FLOATING BACKGROUND IMAGES ====================*/
+.floating-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interactions */
+    z-index: -1;
+}
+
+/* Default floating image properties */
+.floating-img {
+    position: absolute;
+    opacity: 0.3; /* Adjust transparency */
+    animation: float 6s ease-in-out infinite alternate;
+    width: var(--floating-img-size, 100px); /* Adjustable size via CSS variable */
+}
+
+/* Individual Floating Image Positions */
+.floating-img-1 {
+    top: 10%;
+    left: 5%;
+    --floating-img-size: 120px;
+}
+
+.floating-img-2 {
+    top: 50%;
+    left: 80%;
+    --floating-img-size: 180px;
+    animation-duration: 8s;
+}
+
+.floating-img-3 {
+    top: 75%;
+    left: 30%;
+    --floating-img-size: 150px;
+    animation-duration: 7s;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(20px) rotate(10deg);
+    }
+}
+
+/* Responsive Adjustments for Floating Images */
+@media screen and (max-width: 768px) {
+    .floating-img {
+        opacity: 0.2; /* Reduce opacity on mobile */
+        --floating-img-size: 80px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .floating-img {
+        opacity: 0.4; /* More visible on larger screens */
+        --floating-img-size: 200px;
+    }
 }
 
 /*==================== LAYOUT ====================*/
@@ -584,7 +652,7 @@ img{
     margin-bottom: var(--mb-1);
 }
 
-.qualification__calender{
+.qualification__calendar{
     font-size: var(--smaller-font-size);
     color: var(--text-color-light);
 }
@@ -1355,3 +1423,15 @@ img{
     }
 }
 
+
+/*==================== FLOATING BACKGROUND IMAGES ====================*/
+/* (Already included above in :root and .floating-images) */
+
+/*==================== MAIN ====================*/
+/* Your existing main styles here */
+
+/*==================== FOOTER ====================*/
+/* Your existing footer styles here */
+
+/*==================== SCROLL TOP ====================*/
+/* Your existing scroll top styles here */
