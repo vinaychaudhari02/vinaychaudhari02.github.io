@@ -1,44 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!--==================== FAVICON ====================-->
-  <link rel="icon" href="assets/img/favicon.png"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--==================== UNICONS ====================-->
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.png" />
 
-  <!--==================== SWIPER CSS ====================-->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"/>
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
-  <!--==================== CSS ====================-->
-  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
-  <!--==================== GOOGLE ANALYTICS (OPTIONAL) ====================-->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Google Analytics (Optional) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NYWM62ET3"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-2NYWM62ET3');
   </script>
 
   <title>Vinay Chaudhari | Portfolio</title>
+
+  <!-- Inline CSS for Modal & Tabs functionality -->
+  <style>
+    /* Modal Styling */
+    .qualification__modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .qualification__modal.active {
+      display: flex;
+    }
+    .qualification__modal-content {
+      background: #fff;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      border-radius: 4px;
+    }
+    .qualification__modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    /* Qualification Tabs Styling */
+    .qualification__button {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      border-bottom: 2px solid transparent;
+    }
+    .qualification__active-tab {
+      border-color: #000;
+    }
+    .qualification__content {
+      display: none;
+    }
+    .qualification__content.active-content {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <!--==================== FLOATING BACKGROUND IMAGES ====================-->
+  <!-- Floating Background Images -->
   <div class="floating-images">
-      <img src="assets/img/floatingbot.png" class="floating-img floating-img-1" alt="Floating Shape">
-      <img src="assets/img/floatingbot2.png" class="floating-img floating-img-2" alt="Floating Shape">
-      <img src="assets/img/floatingbot3.png" class="floating-img floating-img-3" alt="Floating Shape">
+    <img src="assets/img/floatingbot.png" class="floating-img floating-img-1" alt="Floating Shape">
+    <img src="assets/img/floatingbot2.png" class="floating-img floating-img-2" alt="Floating Shape">
+    <img src="assets/img/floatingbot3.png" class="floating-img floating-img-3" alt="Floating Shape">
   </div>
-  <!--==================== HEADER ====================-->
+
+  <!-- HEADER -->
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#" class="nav__logo">vinaychaudhari09</a>
-
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list grid">
           <li class="nav__item">
@@ -74,11 +125,8 @@
         </ul>
         <i class="uil uil-times nav__close" id="nav-close"></i>
       </div>
-
       <div class="nav__btns">
-        <!-- Theme change button -->
         <i class="uil uil-moon change-theme" id="theme-button"></i>
-
         <div class="nav__toggle" id="nav-toggle">
           <i class="uil uil-apps"></i>
         </div>
@@ -86,66 +134,42 @@
     </nav>
   </header>
 
-  <!--==================== MAIN ====================-->
+  <!-- MAIN CONTENT -->
   <main class="main">
-    <!--==================== HOME ====================-->
+    <!-- HOME SECTION -->
     <section class="home section" id="home">
       <div class="home__container container grid">
         <div class="home__content grid">
           <div class="home__social">
-            <a
-              href="https://www.linkedin.com/in/vinay-chaudhari-120386187/"
-              target="_blank"
-              class="home__social-icon"
-            >
+            <a href="https://www.linkedin.com/in/vinay-chaudhari-120386187/" target="_blank" class="home__social-icon">
               <i class="uil uil-linkedin-alt"></i>
             </a>
             <a href="https://medium.com/@vinaychaudhari2699" target="_blank" class="home__social-icon">
               <i class="uil uil-medium-m"></i>
             </a>
-
-            <a
-              href="https://github.com/vinaychaudhari02"
-              target="_blank"
-              class="home__social-icon"
-            >
+            <a href="https://github.com/vinaychaudhari02" target="_blank" class="home__social-icon">
               <i class="uil uil-github-alt"></i>
             </a>
           </div>
 
           <div class="home__img">
-            <svg
-              class="home__blob"
-              viewBox="0 0 200 187"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
+            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
               <mask id="mask0" mask-type="alpha">
-                <path
-                  d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186
-                     C163.346 165.547 130.807 187.559 100.226 186.353
-                     C69.6454 185.297 41.0228 161.023 21.7403 129.362
-                     C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279
-                     C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737
-                     C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                />
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186
+                         C163.346 165.547 130.807 187.559 100.226 186.353
+                         C69.6454 185.297 41.0228 161.023 21.7403 129.362
+                         C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279
+                         C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737
+                         C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
               </mask>
               <g mask="url(#mask0)">
-                <path
-                  d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186
-                     C163.346 165.547 130.807 187.559 100.226 186.353
-                     C69.6454 185.297 41.0228 161.023 21.7403 129.362
-                     C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279
-                     C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737
-                     C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                />
-                <!-- Updated xlink:href to href -->
-                <image
-                  class="home__blob-img"
-                  x="20"
-                  y="10"
-                  href="assets/img/About/Vinay_about_1.png"
-                />
+                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186
+                         C163.346 165.547 130.807 187.559 100.226 186.353
+                         C69.6454 185.297 41.0228 161.023 21.7403 129.362
+                         C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279
+                         C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737
+                         C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+                <image class="home__blob-img" x="20" y="10" href="assets/img/About/Vinay_about_1.png" alt="Vinay"/>
               </g>
             </svg>
           </div>
@@ -156,7 +180,8 @@
               Research Assistant @ Donald Danforth Plant Science Center, St. Louis;<br>
               Research Assistant @ Saint Louis University
             </h3>
-            <p class="home__description">AI research in labs, data science at home, Healthcare AI at Work
+            <p class="home__description">
+              AI research in labs, data science at home, Healthcare AI at Work
             </p>
             <a href="#contact" class="button button--flex">
               Contact Me <i class="uil uil-message button__icon"></i>
@@ -174,53 +199,32 @@
       </div>
     </section>
 
-    <!--==================== ABOUT ====================-->
+    <!-- ABOUT SECTION -->
     <section class="about section" id="about">
       <h2 class="section__title">About Me</h2>
       <span class="section__subtitle">My Introduction</span>
-
       <div class="about__container container grid">
-        <img src="assets/img/About/about_vinay_1.jpg" alt="About Vinay" class="about__img" />
-
+        <img src="assets/img/About/VinayChaudhari1.jpeg" alt="About Vinay" class="about__img" />
         <div class="about__data">
           <p class="about__description">
-            I am an M.S. candidate in Artificial Intelligence at Saint Louis University (GPA: 3.78), 
-            with hands-on research experience at the Donald Danforth Plant Science Center and Saint Louis University. 
-            I specialize in applying advanced AI and Machine Learning methodologies—such as Deep Learning, LLMs, Contrastive Learning, 
-            and Graph Neural Networks (GNNs)—to tackle complex, real-world challenges across diverse industries. 
+            I am an M.S. candidate in Artificial Intelligence at Saint Louis University (GPA: 3.78), with hands-on research experience at the Donald Danforth Plant Science Center and Saint Louis University. I specialize in applying advanced AI and Machine Learning methodologies—such as Deep Learning, LLMs, Contrastive Learning, and Graph Neural Networks—to tackle complex, real-world challenges.
           </p>
-
           <div class="about__info">
             <div>
               <span class="about__info-title">2+</span>
-              <span class="about__info-name">
-                Years <br />
-                Experience
-              </span>
+              <span class="about__info-name">Years <br>Experience</span>
             </div>
             <div>
               <span class="about__info-title">4+</span>
-              <span class="about__info-name">
-                Ongoing Publications / <br />
-                Presentations
-              </span>
+              <span class="about__info-name">Ongoing Publications / <br>Presentations</span>
             </div>
             <div>
               <span class="about__info-title">3</span>
-              <span class="about__info-name">
-                On going <br />
-                Projects
-              </span>
+              <span class="about__info-name">Ongoing <br>Projects</span>
             </div>
           </div>
-
           <div class="about__buttons">
-            <!-- Update resume PDF path -->
-            <a
-              download
-              href="assets/pdf/VinayChaudhari_Resume.pdf"
-              class="button button--flex resume"
-            >
+            <a download href="assets/pdf/VinayChaudhari_Resume.pdf" class="button button--flex resume">
               Download Resume <i class="uil uil-download-alt button__icon"></i>
             </a>
           </div>
@@ -228,15 +232,13 @@
       </div>
     </section>
 
-    <!--==================== SKILLS ====================-->
+    <!-- SKILLS SECTION -->
     <section class="skills section" id="skills">
       <h2 class="section__title">Skills</h2>
       <span class="section__subtitle">My Technical Level</span>
-    
       <div class="skills__container container grid">
-        <!-- ==================== COLUMN 1 ==================== -->
+        <!-- Column 1: Development & Frameworks -->
         <div>
-          <!--==================== SKILLS 1 ====================-->
           <div class="skills__content skills__close">
             <div class="skills__header">
               <i class="uil uil-brackets-curly skills__icon"></i>
@@ -246,7 +248,6 @@
               </div>
               <i class="uil uil-angle-down skills__arrow"></i>
             </div>
-    
             <div class="skills__list grid">
               <div class="skills__data">
                 <div class="skills__titles">
@@ -257,7 +258,6 @@
                   <span class="skills__percentage skills__python"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Java</h3>
@@ -267,7 +267,6 @@
                   <span class="skills__percentage skills__java"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">R</h3>
@@ -277,7 +276,6 @@
                   <span class="skills__percentage skills__r"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">C++</h3>
@@ -287,7 +285,6 @@
                   <span class="skills__percentage skills__cpp"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">JavaScript</h3>
@@ -297,7 +294,6 @@
                   <span class="skills__percentage skills__js"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">MS Excel</h3>
@@ -307,7 +303,6 @@
                   <span class="skills__percentage skills__excel"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Photoshop</h3>
@@ -319,9 +314,6 @@
               </div>
             </div>
           </div>
-          <!-- End of SKILLS 1 -->
-
-          <!--==================== SKILLS 2 ====================-->
           <div class="skills__content skills__close">
             <div class="skills__header">
               <i class="uil uil-server-network skills__icon"></i>
@@ -331,7 +323,6 @@
               </div>
               <i class="uil uil-angle-down skills__arrow"></i>
             </div>
-    
             <div class="skills__list grid">
               <div class="skills__data">
                 <div class="skills__titles">
@@ -342,7 +333,6 @@
                   <span class="skills__percentage skills__np"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">pandas</h3>
@@ -352,7 +342,6 @@
                   <span class="skills__percentage skills__pd"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">matplotlib</h3>
@@ -362,7 +351,6 @@
                   <span class="skills__percentage skills__mtl"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">scikit-learn</h3>
@@ -372,7 +360,6 @@
                   <span class="skills__percentage skills__sklearn"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Spark MLlib</h3>
@@ -382,7 +369,6 @@
                   <span class="skills__percentage skills__mllib"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Pytorch</h3>
@@ -392,7 +378,6 @@
                   <span class="skills__percentage skills__pytorch"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Deep Graph Library</h3>
@@ -402,7 +387,6 @@
                   <span class="skills__percentage skills__dgl"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">OpenCV</h3>
@@ -412,18 +396,15 @@
                   <span class="skills__percentage skills__opencv"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">HuggingFace</h3>
                   <span class="skills__number">60%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Renamed from skills__looker to skills__huggingface -->
                   <span class="skills__percentage skills__huggingface"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">NLTK</h3>
@@ -433,7 +414,6 @@
                   <span class="skills__percentage skills__nltk"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">seaborn</h3>
@@ -443,7 +423,6 @@
                   <span class="skills__percentage skills__seaborn"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Flask</h3>
@@ -455,12 +434,9 @@
               </div>
             </div>
           </div>
-          <!-- End of SKILLS 2 -->
         </div>
-    
-        <!-- ==================== COLUMN 2 ==================== -->
+        <!-- Column 2: ML, DL, GenAI -->
         <div>
-          <!--==================== SKILLS 3 ====================-->
           <div class="skills__content skills__close">
             <div class="skills__header">
               <i class="uil uil-atom skills__icon"></i>
@@ -470,7 +446,6 @@
               </div>
               <i class="uil uil-angle-down skills__arrow"></i>
             </div>
-    
             <div class="skills__list grid">
               <div class="skills__data">
                 <div class="skills__titles">
@@ -481,7 +456,6 @@
                   <span class="skills__percentage skills__regression"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Decision Trees</h3>
@@ -491,7 +465,6 @@
                   <span class="skills__percentage skills__dt"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Ensemble Models</h3>
@@ -501,7 +474,6 @@
                   <span class="skills__percentage skills__ensemble"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Clustering</h3>
@@ -511,7 +483,6 @@
                   <span class="skills__percentage skills__clustering"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Convolutional Neural Networks</h3>
@@ -521,7 +492,6 @@
                   <span class="skills__percentage skills__cnn"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Graph Neural Networks</h3>
@@ -531,7 +501,6 @@
                   <span class="skills__percentage skills__gnn"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Recommender Systems</h3>
@@ -541,7 +510,6 @@
                   <span class="skills__percentage skills__recsys"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Natural Language Processing</h3>
@@ -551,7 +519,6 @@
                   <span class="skills__percentage skills__nlp"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Exploratory Data Analysis</h3>
@@ -561,7 +528,6 @@
                   <span class="skills__percentage skills__eda"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Multi-modal Learning</h3>
@@ -571,7 +537,6 @@
                   <span class="skills__percentage skills__mml"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Time Series</h3>
@@ -581,33 +546,29 @@
                   <span class="skills__percentage skills__time"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Contrastive Learning</h3>
                   <span class="skills__number">55%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Renamed from skills__time to skills__contrastive -->
                   <span class="skills__percentage skills__contrastive"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Large Language Models</h3>
                   <span class="skills__number">55%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Renamed from skills__time to skills__llm -->
                   <span class="skills__percentage skills__llm"></span>
                 </div>
               </div>
             </div>
           </div>
-          <!-- End of SKILLS 3 -->
-
-          <!--==================== SKILLS 4 ====================-->
+        </div>
+        <!-- Column 3: Cloud and Engineering / Databases and Viz -->
+        <div>
           <div class="skills__content skills__close">
             <div class="skills__header">
               <i class="uil uil-cloud-lock skills__icon"></i>
@@ -617,7 +578,6 @@
               </div>
               <i class="uil uil-angle-down skills__arrow"></i>
             </div>
-    
             <div class="skills__list grid">
               <div class="skills__data">
                 <div class="skills__titles">
@@ -628,7 +588,6 @@
                   <span class="skills__percentage skills__sagemaker"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">AWS EMR</h3>
@@ -638,7 +597,6 @@
                   <span class="skills__percentage skills__emr"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">AWS Lambda</h3>
@@ -648,18 +606,15 @@
                   <span class="skills__percentage skills__lambda"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">AWS EC2</h3>
                   <span class="skills__number">75%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Corrected from skills__redshift to skills__ec2 -->
                   <span class="skills__percentage skills__ec2"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Big Query</h3>
@@ -669,7 +624,6 @@
                   <span class="skills__percentage skills__bq"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Docker</h3>
@@ -679,7 +633,6 @@
                   <span class="skills__percentage skills__docker"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Apache Airflow</h3>
@@ -689,36 +642,26 @@
                   <span class="skills__percentage skills__airflow"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
-                  <h3 class="skills__name">CI/CD pipeline</h3>
+                  <h3 class="skills__name">CI/CD Pipeline</h3>
                   <span class="skills__number">40%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Renamed from skills__airflow to skills__cicd -->
                   <span class="skills__percentage skills__cicd"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Git</h3>
                   <span class="skills__number">40%</span>
                 </div>
                 <div class="skills__bar">
-                  <!-- Renamed from skills__kafka to skills__git -->
                   <span class="skills__percentage skills__git"></span>
                 </div>
               </div>
             </div>
           </div>
-          <!-- End of SKILLS 4 -->
-        </div>
-    
-        <!-- ==================== COLUMN 3 ==================== -->
-        <div>
-          <!--==================== SKILLS 5 ====================-->
           <div class="skills__content skills__close">
             <div class="skills__header">
               <i class="uil uil-analysis skills__icon"></i>
@@ -728,7 +671,6 @@
               </div>
               <i class="uil uil-angle-down skills__arrow"></i>
             </div>
-    
             <div class="skills__list grid">
               <div class="skills__data">
                 <div class="skills__titles">
@@ -739,7 +681,6 @@
                   <span class="skills__percentage skills__sql"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Amazon RDS</h3>
@@ -749,7 +690,6 @@
                   <span class="skills__percentage skills__rds"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Tableau</h3>
@@ -759,7 +699,6 @@
                   <span class="skills__percentage skills__tableau"></span>
                 </div>
               </div>
-    
               <div class="skills__data">
                 <div class="skills__titles">
                   <h3 class="skills__name">Power BI</h3>
@@ -771,519 +710,361 @@
               </div>
             </div>
           </div>
-          <!-- End of SKILLS 5 -->
         </div>
       </div>
     </section>
 
-    <!--==================== QUALIFICATION ====================-->
+    <!-- QUALIFICATION SECTION -->
     <section class="qualification section">
       <h2 class="section__title">Qualification</h2>
       <span class="section__subtitle">My Personal Journey</span>
-
       <div class="qualification__container container">
+        <!-- Tabs: Work first, then Education -->
         <div class="qualification__tabs">
-          <div class="qualification__button button--flex qualification__active" data-target="#education">
-            <i class="uil uil-graduation-cap qualification__icon"></i>
-            Education
+          <div class="qualification__button button--flex qualification__active-tab" data-target="#work">
+            <i class="uil uil-briefcase-alt qualification__icon"></i> Work
           </div>
-
-          <div class="qualification__button button--flex" data-target="#work">
-            <i class="uil uil-briefcase-alt qualification__icon"></i>
-            Work
+          <div class="qualification__button button--flex" data-target="#education">
+            <i class="uil uil-graduation-cap qualification__icon"></i> Education
           </div>
         </div>
-
         <div class="qualification__sections">
-          <!--==================== QUALIFICATION CONTENT 1 ====================-->
-
-          <div class="qualification__content qualification__active" data-content id="education">
-
-            <!--==================== QUALIFICATION 1 ====================-->
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">Masters of Science in Artificial Intelligence</h3>
-                <span class="qualification__subtitle">Saint Louis University, Saint Louis, USA</span>
-                <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  2023-2025
-                </div>
-              </div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-            </div>
-
-
-            <!--==================== QUALIFICATION 2 ====================-->
-            <div class="qualification__data">
-
-
-              <div>
-                <h3 class="qualification__title">B.Tech in Electrical Engineering</h3>
-                <span class="qualification__subtitle">Dr. Babasaheb Ambedkar Technological University, India</span>
-                <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  2016-2020
-                </div>
-              </div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-
-            </div>
-
-            <!--==================== QUALIFICATION 3 ====================-->
-            <div class="qualification__data">
-
-              <div></div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-
-              <div>
-                <h3 class="qualification__title">C.B.S.E</h3>
-                <span class="qualification__subtitle">Macro Vision Academy, Burhanpur, India</span>
-                <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  2014-2016
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-
-
-          <!--==================== QUALIFICATION CONTENT 2 ====================-->
-
-          <div class="qualification__content" data-content id="work">
-
-            <!--==================== QUALIFICATION 1 ====================-->
+          <!-- WORK CONTENT -->
+          <div class="qualification__content active-content" data-content id="work">
+            <!-- Work Qualification 1 -->
             <div class="qualification__data">
               <div>
                 <h3 class="qualification__title">Research Assistant</h3>
                 <span class="qualification__subtitle">Donald Danforth Plant Science Center</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  August 2024 - Present
+                  <i class="uil uil-calendar-alt"></i> August 2024 - Present
                 </div>
-
-                <span
-                  class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here
-                  <i class="uil uil-arrow-right button__icon"></i>
+                <span class="button button--flex button--small button--link qualification__button-modal">
+                  What I did here <i class="uil uil-arrow-right button__icon"></i>
                 </span>
-
+                <!-- Modal -->
                 <div class="qualification__modal">
                   <div class="qualification__modal-content">
-                    <!-- <h4 class="qualification__modal-title"></h4> -->
-                    <p style="text-align:center"><img src="assets/img/Experience/danforth.jpeg"
-                            alt="Donald Danforth Plant Science Center"></p>
+                    <p style="text-align:center">
+                      <img src="assets/img/Experience/danforth.jpeg" alt="Donald Danforth Plant Science Center">
+                    </p>
                     <i class="uil uil-times qualification__modal-close"></i>
-
                     <ul class="qualification__modal-works grid">
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Engineered TensorFlow/PyTorch models for sorghum biomass
-                          prediction across 285 genotypes.</p>
+                        <p>Engineered TensorFlow/PyTorch models for sorghum biomass prediction.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Optimized GNN and LSTM models, boosting predictive accuracy
-                          and reducing lab costs by 70%.</p>
+                        <p>Optimized GNN and LSTM models, boosting predictive accuracy.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Integrated genomic data on AWS (EC2, S3), improving
-                          scalability and secure storage.</p>
+                        <p>Integrated genomic data on AWS for improved scalability.</p>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-
               <div>
                 <span class="qualification__rounder"></span>
                 <span class="qualification__line"></span>
               </div>
-
             </div>
-
-            <!--==================== QUALIFICATION 2 ====================-->
+            <!-- Work Qualification 2 -->
             <div class="qualification__data">
-
               <div></div>
-
               <div>
                 <span class="qualification__rounder"></span>
                 <span class="qualification__line"></span>
               </div>
-
               <div>
                 <h3 class="qualification__title">Research Assistant</h3>
                 <span class="qualification__subtitle">Saint Louis University</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  September 2023 - Present
+                  <i class="uil uil-calendar-alt"></i> September 2023 - Present
                 </div>
-
-                <span
-                  class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here
-                  <i class="uil uil-arrow-right button__icon"></i>
+                <span class="button button--flex button--small button--link qualification__button-modal">
+                  What I did here <i class="uil uil-arrow-right button__icon"></i>
                 </span>
-
+                <!-- Modal -->
                 <div class="qualification__modal">
                   <div class="qualification__modal-content">
-                    <!-- <h4 class="qualification__modal-title"></h4> -->
-                    <p style="text-align:center"><img src="assets/img/Experience/slu.png" alt="Saint Louis University"></p>
+                    <p style="text-align:center">
+                      <img src="assets/img/Experience/slu.png" alt="Saint Louis University">
+                    </p>
                     <i class="uil uil-times qualification__modal-close"></i>
-
                     <ul class="qualification__modal-works grid">
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Optimized algorithms for 170K+ proteins & RNAs, cutting
-                          processing time by 50%.</p>
+                        <p>Optimized algorithms for processing 170K+ proteins & RNAs.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Fine-tuned large language models (LLMs), boosting RNA motif
-                          classification accuracy by 21%.</p>
+                        <p>Fine-tuned LLMs for improved RNA motif classification.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Automated data pipelines (Python, Shell), reducing
-                          preparation time by 50%.</p>
+                        <p>Automated data pipelines using Python and Shell scripting.</p>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-
-
-            <!--==================== QUALIFICATION 3 ====================-->
+            <!-- Work Qualification 3 -->
             <div class="qualification__data">
-
               <div>
                 <h3 class="qualification__title">Data Scientist</h3>
                 <span class="qualification__subtitle">Artificial Mindbox, India</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  February 2023 -- May 2023
+                  <i class="uil uil-calendar-alt"></i> February 2023 - May 2023
                 </div>
-
-                <span
-                  class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here
-                  <i class="uil uil-arrow-right button__icon"></i>
+                <span class="button button--flex button--small button--link qualification__button-modal">
+                  What I did here <i class="uil uil-arrow-right button__icon"></i>
                 </span>
-
+                <!-- Modal -->
                 <div class="qualification__modal">
                   <div class="qualification__modal-content">
-                    <!-- <h4 class="qualification__modal-title"></h4> -->
-                    <p style="text-align:center"><img src="assets/img/Experience/mindobx.png"
-                            alt="Artificial Mindbox"></p>
+                    <p style="text-align:center">
+                      <img src="assets/img/Experience/mindobx.png" alt="Artificial Mindbox">
+                    </p>
                     <i class="uil uil-times qualification__modal-close"></i>
-
                     <ul class="qualification__modal-works grid">
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Performed advanced data analysis for customer segmentation
-                          (Python, R), delivering +20% deeper insights.</p>
+                        <p>Performed advanced data analysis for customer segmentation.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Deployed NLP-based sentiment analysis, improving client
-                          satisfaction by 30%.</p>
+                        <p>Deployed NLP-based sentiment analysis models.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Built robust ML pipelines, boosting data quality & accuracy
-                          by 15%.</p>
+                        <p>Built robust ML pipelines to improve data quality.</p>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-
               <div>
                 <span class="qualification__rounder"></span>
                 <span class="qualification__line"></span>
               </div>
-
             </div>
-
-            <!--==================== QUALIFICATION 4 ====================-->
+            <!-- Work Qualification 4 -->
             <div class="qualification__data">
-
               <div></div>
-
               <div>
                 <span class="qualification__rounder"></span>
                 <span class="qualification__line"></span>
               </div>
-
               <div>
                 <h3 class="qualification__title">Sr. Executive Engineer</h3>
                 <span class="qualification__subtitle">ERO Power LLP</span>
                 <div class="qualification__calendar">
-                  <i class="uil uil-calendar-alt"></i>
-                  September 2020 - July 2022
+                  <i class="uil uil-calendar-alt"></i> September 2020 - July 2022
                 </div>
-
-                <span
-                  class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here
-                  <i class="uil uil-arrow-right button__icon"></i>
+                <span class="button button--flex button--small button--link qualification__button-modal">
+                  What I did here <i class="uil uil-arrow-right button__icon"></i>
                 </span>
-
+                <!-- Modal -->
                 <div class="qualification__modal">
                   <div class="qualification__modal-content">
-                    <!-- <h4 class="qualification__modal-title"></h4> -->
-                    <p style="text-align:center"><img src="assets/img/Experience/ero.jpeg"
-                            alt="ERO Power LLP"></p>
+                    <p style="text-align:center">
+                      <img src="assets/img/Experience/ero.jpeg" alt="ERO Power LLP">
+                    </p>
                     <i class="uil uil-times qualification__modal-close"></i>
-
                     <ul class="qualification__modal-works grid">
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Directed a team of 10 data scientists in analyzing billing and customer datasets for IT parks, utilizing predictive analytics to enhance operational efficiency and reduce power costs by 15%.</p>
+                        <p>Directed a team analyzing billing and customer datasets.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Enhanced customer satisfaction rates to 99% by developing machine learning models to optimize power usage strategies based on behavioral data analysis.</p>
+                        <p>Developed ML models to optimize power usage strategies.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Led the statistical analysis of energy consumption data across multiple platforms, employing regression and clustering techniques to forecast trends and develop strategic energy reduction initiatives.</p>
+                        <p>Implemented data-driven energy-saving strategies.</p>
                       </li>
                       <li class="qualification__modal-work">
                         <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Designed and implemented data-driven energy-saving strategies that decreased energy expenditures by 15%, integrating AI-driven automation tools into existing energy management systems.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Collaborated on the design and deployment of software solutions that improved data ingestion and analysis, significantly enhancing the scalability and operational efficiency of energy management systems.</p>
+                        <p>Enhanced scalability of energy management systems with software solutions.</p>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-
+          </div>
+          <!-- EDUCATION CONTENT -->
+          <div class="qualification__content" data-content id="education">
+            <!-- Education Qualification 1 -->
+            <div class="qualification__data">
+              <div>
+                <h3 class="qualification__title">Masters of Science in Artificial Intelligence</h3>
+                <span class="qualification__subtitle">Saint Louis University, USA</span>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i> 2023 - 2025
+                </div>
+              </div>
+              <div>
+                <span class="qualification__rounder"></span>
+                <span class="qualification__line"></span>
+              </div>
+            </div>
+            <!-- Education Qualification 2 -->
+            <div class="qualification__data">
+              <div></div>
+              <div>
+                <span class="qualification__rounder"></span>
+                <span class="qualification__line"></span>
+              </div>
+              <div>
+                <h3 class="qualification__title">B.Tech in Electrical Engineering</h3>
+                <span class="qualification__subtitle">Dr. Babasaheb Ambedkar Technological University, India</span>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i> 2016 - 2020
+                </div>
+              </div>
+            </div>
+            <!-- Education Qualification 3 -->
+            <div class="qualification__data">
+              <div>
+                <h3 class="qualification__title">C.B.S.E</h3>
+                <span class="qualification__subtitle">Macro Vision Academy, India</span>
+                <div class="qualification__calendar">
+                  <i class="uil uil-calendar-alt"></i> 2014 - 2016
+                </div>
+              </div>
+              <div>
+                <span class="qualification__rounder"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!--==================== RESEARCH PROJECTS ====================-->
+
+    <!-- RESEARCH SECTION -->
     <section class="research section" id="research">
       <h2 class="section__title">Research Projects</h2>
       <span class="section__subtitle">What I'm Working On</span>
-
       <div class="research__container container grid">
         <!-- Project 1 -->
         <div class="research__content">
-          <h3 class="research__title">
-            Feature Tracking & High-Speed Motion for Event Cameras
-          </h3>
-          <span class="research__subtitle">October 2024 -- December 2024</span>
+          <h3 class="research__title">Feature Tracking & High-Speed Motion for Event Cameras</h3>
+          <span class="research__subtitle">October 2024 - December 2024</span>
           <p class="research__description">
-            Developed a ConvLSTM model for high-speed motion tracking on event
-            camera data, improving accuracy by 20%. Focused on accident vehicle
-            and satellite debris detection. Evaluated model performance across
-            diverse real-world scenarios.
+            Developed a ConvLSTM model for high-speed motion tracking on event camera data, improving accuracy by 20%. Focused on accident vehicle and satellite debris detection.
           </p>
         </div>
-
         <!-- Project 2 -->
         <div class="research__content">
-          <h3 class="research__title">
-            Master’s Thesis: AI in RNA Analysis Clustering
-          </h3>
-          <span class="research__subtitle">March 2024 -- Present</span>
+          <h3 class="research__title">Master’s Thesis: AI in RNA Analysis Clustering</h3>
+          <span class="research__subtitle">March 2024 - Present</span>
           <p class="research__description">
-            Designed a framework for analyzing 200K+ RNA motifs using 3D CNN and
-            ResNet-18 models. Achieved major improvements in structural/sequence
-            feature similarity, pushing forward motif classification research
-            and bridging deep learning with computational biology.
+            Designed a framework for analyzing 200K+ RNA motifs using 3D CNN and ResNet-18 models, enhancing motif classification research.
           </p>
         </div>
-
         <!-- Project 3 -->
         <div class="research__content">
-          <h3 class="research__title">
-            Modeling Genomic Prediction of Sorghum Biomass Growth
-          </h3>
-          <span class="research__subtitle">August 2024 -- Present</span>
+          <h3 class="research__title">Modeling Genomic Prediction of Sorghum Biomass Growth</h3>
+          <span class="research__subtitle">August 2024 - Present</span>
           <p class="research__description">
-            Analyzed genotype BLUPs data for 285 sorghum plants, improving
-            dataset robustness by 20%. Built/validated genomic prediction models
-            using LSTM, yielding a 15% increase in prediction accuracy.
+            Analyzed genotype BLUPs for 285 sorghum plants and built LSTM-based genomic prediction models, increasing accuracy by 15%.
           </p>
         </div>
         <!-- Project 4 -->
         <div class="research__content">
-          <h3 class="research__title">
-            Large-Scale Computational Analysis of Protein Structures For the Identification of Epitope Analogues Using
-            Artificial Intelligence.
-          </h3>
-          <span class="research__subtitle">September 2024 -- Present</span>
+          <h3 class="research__title">Computational Analysis of Protein Structures for Epitope Identification</h3>
+          <span class="research__subtitle">September 2024 - Present</span>
           <p class="research__description">
-              Developed an AI-driven framework to identify homologous epitopes, facilitating the creation of universal vaccines against diverse viral threats. Leveraged tools like AlphaFold, SimCLR contrastive learning, and 3D ResNet models to achieve 99% accuracy in epitope-antibody interaction predictions. This innovative approach captures high-dimensional structural and biochemical features, overcoming current challenges in epitope prediction and paving the way for effective universal vaccine development.
+            Developed an AI framework using AlphaFold, contrastive learning, and 3D ResNet to predict epitope-antibody interactions with 99% accuracy.
           </p>
         </div>
         <!-- Project 5 -->
         <div class="research__content">
-          <h3 class="research__title">
-            Multi-agent Framework for RNA Motif Analysis
-          </h3>
-          <span class="research__subtitle">January 2025 -- Present</span>
+          <h3 class="research__title">Multi-agent Framework for RNA Motif Analysis</h3>
+          <span class="research__subtitle">January 2025 - Present</span>
           <p class="research__description">
-            Developed a robust multi-agent system that integrates autonomous agents for data preprocessing, feature extraction, and pattern recognition to enhance RNA motif identification. This framework leverages machine learning algorithms and parallel processing to improve the accuracy and scalability of RNA structure predictions, facilitating advanced gene regulation studies.
+            Created a multi-agent system for data preprocessing and pattern recognition to enhance RNA structure predictions.
           </p>
         </div>
       </div>
     </section>
 
-    <!--==================== AWARDS & CONFERENCES ====================-->
-
+    <!-- CERTIFICATION SECTION -->
     <section class="certification section" id="certification">
-      <h2 class="section__title">Awards & Conferences</h2>
+      <h2 class="section__title">Awards & Certifications</h2>
       <span class="section__subtitle">Recognitions</span>
-    
       <div class="certification__container container grid">
-    
-        <!-- AWARD 1 -->
+        <!-- Award 1 -->
         <div class="certification__content">
           <div>
-            <h4 class="certification__title">
-              Pacific Symposium on Biocomputing (PSB) 2025
-            </h4>
-            <h4 class="certification__subtitle">
-              Stanford University, January 2025
-            </h4>
+            <h4 class="certification__title">Pacific Symposium on Biocomputing (PSB) 2025</h4>
+            <h4 class="certification__subtitle">Stanford University, January 2025</h4>
             <p class="research__description">
-              Presented a research poster:
-              <a
-                href="https://cs.slu.edu/~hou/PSB/Poster_PSB.pdf"
-                target="_blank"
-              >
-                “Enhancing RNA Motif Representation with Contrastive Learning
-                and Language Models”
+              Presented a research poster: 
+              <a href="https://cs.slu.edu/~hou/PSB/Poster_PSB.pdf" target="_blank">
+                “Enhancing RNA Motif Representation with Contrastive Learning and Language Models”
               </a>
-              for advanced sequence-structure analysis.
             </p>
-    
-            <!-- New Button -->
-            <a 
-              href="https://cs.slu.edu/~hou/PSB/Poster_PSB.pdf" 
-              target="_blank"
-              class="button button--flex button--small certification__button"
-              style="margin-top:1rem;"
-            >
-              View Poster
-              <i class="uil uil-arrow-right button__icon"></i>
+            <a href="https://cs.slu.edu/~hou/PSB/Poster_PSB.pdf" target="_blank" class="button button--flex button--small certification__button" style="margin-top:1rem;">
+              View Poster <i class="uil uil-arrow-right button__icon"></i>
             </a>
           </div>
         </div>
-    
-        <!-- AWARD 2 -->
+        <!-- Award 2 -->
         <div class="certification__content">
           <div>
             <h4 class="certification__title">AI FARM 2024 Conference Presenter</h4>
             <h4 class="certification__subtitle">St. Louis, October 2024</h4>
             <p class="research__description">
-              Delivered a research presentation:
-              <a
-                href="https://www.linkedin.com/feed/update/urn:li:activity:7247843538648928256/"
-                target="_blank"
-              >
+              Delivered a research presentation: 
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7247843538648928256/" target="_blank">
                 “Modeling Genomic Prediction of Sorghum Biomass Growth”
-              </a>,
-              demonstrating innovative ML applications in plant science.
+              </a>
             </p>
-    
-            <!-- New Button -->
-            <a 
-              href="https://www.linkedin.com/feed/update/urn:li:activity:7247843538648928256/" 
-              target="_blank"
-              class="button button--flex button--small certification__button"
-              style="margin-top:1rem;"
-            >
-              View Presentation
-              <i class="uil uil-arrow-right button__icon"></i>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7247843538648928256/" target="_blank" class="button button--flex button--small certification__button" style="margin-top:1rem;">
+              View Presentation <i class="uil uil-arrow-right button__icon"></i>
             </a>
           </div>
         </div>
-    
-        <!-- AWARD 3 -->
+        <!-- Award 3 -->
         <div class="certification__content">
           <div>
             <h4 class="certification__title">Student Experience Program</h4>
-            <h4 class="certification__subtitle">
-              Midwest Region Consortium, Chicago – April 2024
-            </h4>
+            <h4 class="certification__subtitle">Midwest Region Consortium, Chicago – April 2024</h4>
             <p class="research__description">
-              Recognized for active participation in advancing computing and AI
-              fields. Earned a $500 stipend for contributions to the Annual
-              Network Retreat.
+              Recognized for active participation in advancing computing and AI fields with a $500 stipend.
             </p>
-    
-            <!-- New Button for Midwest Region Consortium link -->
-            <a 
-              href="https://midwestresearchcomputing.org/mw-rcd-newsletters/spotlights/sep/"
-              target="_blank"
-              class="button button--flex button--small certification__button"
-              style="margin-top:1rem;"
-            >
-              More Info
-              <i class="uil uil-arrow-right button__icon"></i>
+            <a href="https://midwestresearchcomputing.org/mw-rcd-newsletters/spotlights/sep/" target="_blank" class="button button--flex button--small certification__button" style="margin-top:1rem;">
+              More Info <i class="uil uil-arrow-right button__icon"></i>
             </a>
           </div>
         </div>
-        
-        <!-- AWARD 4 -->
+        <!-- Award 4 -->
         <div class="certification__content">
           <div>
-            <h4 class="certification__title">Upcoming: The 67th Annual Maize Genetics Meeting</h4>
-            <h4 class="certification__subtitle">
-              Maize Genetics Cooperation, Inc (MGC), Saint Louis – March 2025
-            </h4>
+            <h4 class="certification__title">Upcoming: 67th Annual Maize Genetics Meeting</h4>
+            <h4 class="certification__subtitle">Maize Genetics Cooperation, Inc (MGC), Saint Louis – March 2025</h4>
             <p class="research__description">
-              Delivering a research poster & talk on topic "Predicting end-of-season Sorghum biomass from seedling-stage traits"
+              Delivering a research poster & talk on "Predicting end-of-season Sorghum biomass from seedling-stage traits".
             </p>
-    
-            <!-- New Button for Maize Genetics Meeting link -->
-            <a 
-              href="https://community.maizegdb.org/abstracts/mm2025/reports/see_updated_abstract.php?id=275&pin=rFxz4A"
-              target="_blank"
-              class="button button--flex button--small certification__button"
-              style="margin-top:1rem;"
-            >
-              More Info
-              <i class="uil uil-arrow-right button__icon"></i>
+            <a href="https://community.maizegdb.org/abstracts/mm2025/reports/see_updated_abstract.php?id=275&pin=rFxz4A" target="_blank" class="button button--flex button--small certification__button" style="margin-top:1rem;">
+              More Info <i class="uil uil-arrow-right button__icon"></i>
             </a>
           </div>
         </div>
-        
-        <!-- Add other certifications or awards here if desired -->
-    
       </div>
     </section>
 
-    <!--==================== CONTACT ME ====================-->
+    <!-- CONTACT SECTION -->
     <section class="contact section" id="contact">
       <h2 class="section__title">Contact Me</h2>
       <span class="section__subtitle">Get in Touch</span>
-
       <div class="contact__container container grid">
         <div>
           <div class="contact__information">
@@ -1294,7 +1075,6 @@
             </div>
           </div>
         </div>
-
         <div>
           <div class="contact__information">
             <i class="uil uil-envelope contact__icon"></i>
@@ -1303,14 +1083,11 @@
                 <h3 class="contact__title">Email</h3>
               </a>
               <a href="mailto:vinaysanjay.chaudhari@slu.edu">
-                <span class="contact__subtitle"
-                  >vinaysanjay.chaudhari@slu.edu</span
-                >
+                <span class="contact__subtitle">vinaysanjay.chaudhari@slu.edu</span>
               </a>
             </div>
           </div>
         </div>
-
         <div>
           <div class="contact__information">
             <i class="uil uil-map-marker contact__icon"></i>
@@ -1324,91 +1101,94 @@
     </section>
   </main>
 
-  <!--==================== FOOTER ====================-->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__bg">
       <div class="footer__container container grid">
         <div>
           <h1 class="footer__title">Vinay</h1>
         </div>
-
         <ul class="footer__links">
-          <li>
-            <a href="#skills" class="footer__link">Skills</a>
-          </li>
-          <li>
-            <!-- Removed link to #portfolio -->
-          </li>
-          <li>
-            <a href="#research" class="footer__link">Research</a>
-          </li>
-          <li>
-            <a href="#certification" class="footer__link">Awards & Certifications</a>
-          </li>
-          <li>
-            <!-- Removed link to #blog -->
-          </li>
-          <li>
-            <a href="#contact" class="footer__link">Contact</a>
-          </li>
+          <li><a href="#skills" class="footer__link">Skills</a></li>
+          <li><a href="#research" class="footer__link">Research</a></li>
+          <li><a href="#certification" class="footer__link">Awards & Certifications</a></li>
+          <li><a href="#contact" class="footer__link">Contact</a></li>
         </ul>
-
         <div class="footer__socials">
-          <a
-            href="https://www.linkedin.com/in/vinay-chaudhari-120386187/"
-            target="_blank"
-            class="footer__social"
-          >
+          <a href="https://www.linkedin.com/in/vinay-chaudhari-120386187/" target="_blank" class="footer__social">
             <i class="uil uil-linkedin-alt"></i>
           </a>
-
-          <a
-            href="https://github.com/vinaychaudhari02"
-            target="_blank"
-            class="footer__social"
-          >
+          <a href="https://github.com/vinaychaudhari02" target="_blank" class="footer__social">
             <i class="uil uil-github-alt"></i>
           </a>
-
-          <!-- Add Twitter or other socials if desired -->
         </div>
       </div>
-
-      <p class="footer__copy">
-        &#169; 2025 Vinay Chaudhari. All rights reserved
-      </p>
+      <p class="footer__copy">&#169; 2025 Vinay Chaudhari. All rights reserved</p>
     </div>
   </footer>
 
-  <!--==================== SCROLL TOP ====================-->
+  <!-- SCROLL TOP BUTTON -->
   <a href="#" class="scrollup" id="scroll-up">
     <i class="uil uil-arrow-up scrollup__icon"></i>
   </a>
 
-  <!--==================== SWIPER JS ====================-->
+  <!-- SWIPER JS -->
   <script src="assets/js/swiper-bundle.min.js"></script>
-  <!--==================== MAIN JS ====================-->
+  <!-- MAIN JS -->
   <script src="assets/js/main.js"></script>
-
-  <!--==================== FLOATING IMAGES JS ====================-->
+  <!-- FLOATING IMAGES JS -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Function to dynamically change floating image sizes
-        function updateFloatingImages() {
-            const images = document.querySelectorAll(".floating-img");
+      function updateFloatingImages() {
+        const images = document.querySelectorAll(".floating-img");
+        images.forEach((img) => {
+          const newSize = Math.floor(Math.random() * 100) + 100;
+          img.style.setProperty("--floating-img-size", `${newSize}px`);
+        });
+      }
+      setInterval(updateFloatingImages, 10000);
+      updateFloatingImages();
+    });
+  </script>
 
-            images.forEach((img) => {
-                // Generate a random size between 100px and 200px
-                const newSize = Math.floor(Math.random() * 100) + 100;
-                img.style.setProperty("--floating-img-size", `${newSize}px`);
-            });
-        }
+  <!-- MODAL & TABS SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Modal functionality
+      const modalBtns = document.querySelectorAll('.qualification__button-modal');
+      const modalCloseBtns = document.querySelectorAll('.qualification__modal-close');
 
-        // Update image sizes every 10 seconds
-        setInterval(updateFloatingImages, 10000);
+      modalBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const parentData = btn.closest('.qualification__data');
+          const modal = parentData.querySelector('.qualification__modal');
+          if (modal) {
+            modal.classList.add('active');
+          }
+        });
+      });
 
-        // Initial call
-        updateFloatingImages();
+      modalCloseBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener('click', () => {
+          closeBtn.closest('.qualification__modal').classList.remove('active');
+        });
+      });
+
+      // Tab functionality for Qualification section
+      const tabButtons = document.querySelectorAll('.qualification__button');
+      const tabContents = document.querySelectorAll('.qualification__content');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          tabButtons.forEach(b => b.classList.remove('qualification__active-tab'));
+          tabContents.forEach(content => content.classList.remove('active-content'));
+          this.classList.add('qualification__active-tab');
+          const target = document.querySelector(this.dataset.target);
+          if (target) {
+            target.classList.add('active-content');
+          }
+        });
+      });
     });
   </script>
 </body>
