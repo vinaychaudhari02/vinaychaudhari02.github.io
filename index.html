@@ -2288,32 +2288,33 @@
 
     // Modal functionality
     const modalBtns = document.querySelectorAll(".qualification__button-modal");
+    const modals = document.querySelectorAll(".qualification__modal");
     const modalCloseBtns = document.querySelectorAll(".qualification__modal-close");
 
     modalBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const container = btn.closest(".qualification__data");
+        btn.addEventListener("click", function () {
+            const container = this.closest(".qualification__data");
             const modal = container ? container.querySelector(".qualification__modal") : null;
             if (modal) {
                 modal.classList.add("active-modal");
             } else {
-                console.warn("Modal not found for button:", btn);
+                console.warn("Modal not found for button:", this);
             }
         });
     });
 
     modalCloseBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", () => {
-            const modal = closeBtn.closest(".qualification__modal");
+        closeBtn.addEventListener("click", function () {
+            const modal = this.closest(".qualification__modal");
             if (modal) {
                 modal.classList.remove("active-modal");
             }
         });
     });
 
-    // Close modal when clicking outside the modal content
-    document.addEventListener("click", (event) => {
-        document.querySelectorAll(".qualification__modal").forEach((modal) => {
+    // Close modal when clicking outside modal content
+    window.addEventListener("click", function (event) {
+        modals.forEach((modal) => {
             if (modal.classList.contains("active-modal") && !modal.querySelector(".qualification__modal-content").contains(event.target)) {
                 modal.classList.remove("active-modal");
             }
@@ -2340,7 +2341,7 @@
     // Dark mode toggle
     const themeButton = document.getElementById("theme-button");
     if (themeButton) {
-        themeButton.addEventListener("click", () => {
+        themeButton.addEventListener("click", function () {
             document.body.classList.toggle("dark-theme");
             themeButton.classList.toggle("uil-sun", document.body.classList.contains("dark-theme"));
             themeButton.classList.toggle("uil-moon", !document.body.classList.contains("dark-theme"));
@@ -2363,6 +2364,7 @@
     sections.forEach((section) => {
         observer.observe(section);
     });
-});</script>
+});
+</script>
 </body>
 </html>
