@@ -16,6 +16,9 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
   <!-- Google Analytics (Optional) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NYWM62ET3"></script>
   <script>
@@ -27,9 +30,86 @@
 
   <title>Vinay Chaudhari | Portfolio</title>
 
-  <!-- Inline CSS for Modal & Tabs functionality -->
+  <!-- Inline CSS for design enhancements -->
   <style>
-    /* Modal Styling */
+    /* CSS Variables & Dark Mode */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --accent-color: #3498db;
+      --nav-bg: rgba(255, 255, 255, 0.7);
+    }
+    .dark-mode {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --accent-color: #3498db;
+      --nav-bg: rgba(18, 18, 18, 0.7);
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Glassmorphic Sticky Navbar */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      z-index: 999;
+      transition: background 0.3s ease;
+    }
+    .nav__logo, .nav__link {
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-color);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 6px solid #ccc;
+      border-top-color: var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 
+      to { transform: rotate(360deg); }
+    }
+
+    /* Smooth Button Hover */
+    .button {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Qualification Modal & Tabs Styling (existing) */
     .qualification__modal {
       position: fixed;
       top: 0;
@@ -46,12 +126,13 @@
       display: flex;
     }
     .qualification__modal-content {
-      background: #fff;
+      background: var(--bg-color);
       padding: 2rem;
       max-width: 500px;
       width: 90%;
       position: relative;
       border-radius: 4px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .qualification__modal-close {
       position: absolute;
@@ -60,25 +141,42 @@
       cursor: pointer;
       font-size: 1.5rem;
     }
-    /* Qualification Tabs Styling */
     .qualification__button {
       cursor: pointer;
       padding: 0.5rem 1rem;
       margin-right: 1rem;
       border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
     }
     .qualification__active-tab {
-      border-color: #000;
+      border-color: var(--accent-color);
     }
     .qualification__content {
       display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .qualification__content.active-content {
       display: block;
+      opacity: 1;
+    }
+
+    /* Fade-in Animation for Sections */
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
+  <!-- Preloader -->
+  <div id="preloader"><div class="spinner"></div></div>
+
   <!-- Floating Background Images -->
   <div class="floating-images">
     <img src="assets/img/floatingbot.png" class="floating-img floating-img-1" alt="Floating Shape">
@@ -1151,13 +1249,19 @@
     });
   </script>
 
-  <!-- MODAL & TABS SCRIPT -->
+  <!-- MODAL, TABS, DARK MODE & PRELOADER SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Preloader fade-out
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.style.display = 'none', 500);
+      });
+
       // Modal functionality
       const modalBtns = document.querySelectorAll('.qualification__button-modal');
       const modalCloseBtns = document.querySelectorAll('.qualification__modal-close');
-
       modalBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
           const parentData = btn.closest('.qualification__data');
@@ -1167,7 +1271,6 @@
           }
         });
       });
-
       modalCloseBtns.forEach((closeBtn) => {
         closeBtn.addEventListener('click', () => {
           closeBtn.closest('.qualification__modal').classList.remove('active');
@@ -1177,7 +1280,6 @@
       // Tab functionality for Qualification section
       const tabButtons = document.querySelectorAll('.qualification__button');
       const tabContents = document.querySelectorAll('.qualification__content');
-
       tabButtons.forEach(btn => {
         btn.addEventListener('click', function () {
           tabButtons.forEach(b => b.classList.remove('qualification__active-tab'));
@@ -1188,6 +1290,37 @@
             target.classList.add('active-content');
           }
         });
+      });
+
+      // Dark mode toggle
+      const themeButton = document.getElementById('theme-button');
+      themeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        // Toggle icon (optional)
+        if(document.body.classList.contains('dark-mode')){
+          themeButton.classList.remove('uil-moon');
+          themeButton.classList.add('uil-sun');
+        } else {
+          themeButton.classList.remove('uil-sun');
+          themeButton.classList.add('uil-moon');
+        }
+      });
+
+      // Section fade-in on scroll using Intersection Observer
+      const sections = document.querySelectorAll('.section');
+      const options = {
+        threshold: 0.2
+      };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+      sections.forEach(section => {
+        observer.observe(section);
       });
     });
   </script>
