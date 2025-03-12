@@ -694,11 +694,12 @@
                   <div class="qualification__calendar">
                     <i class="uil uil-calendar-alt"></i> August 2024 - Present
                   </div>
-                  <!-- Modal trigger and modal inside same container -->
-                  <span class="button button--flex button--small button--link qualification__button-modal">
+                  <!-- Modal trigger with data attribute -->
+                  <span class="button button--flex button--small button--link qualification__button-modal" data-modal-target="#modal-danforth">
                     What I did here <i class="uil uil-arrow-right button__icon"></i>
                   </span>
-                  <div class="qualification__modal">
+                  <!-- Modal -->
+                  <div class="qualification__modal" id="modal-danforth">
                     <div class="qualification__modal-content">
                       <p style="text-align:center">
                         <img src="assets/img/Experience/danforth.jpeg" alt="Donald Danforth Plant Science Center">
@@ -734,11 +735,10 @@
                   <div class="qualification__calendar">
                     <i class="uil uil-calendar-alt"></i> September 2023 - Present
                   </div>
-                  <!-- Modal trigger and modal -->
-                  <span class="button button--flex button--small button--link qualification__button-modal">
+                  <span class="button button--flex button--small button--link qualification__button-modal" data-modal-target="#modal-slu">
                     What I did here <i class="uil uil-arrow-right button__icon"></i>
                   </span>
-                  <div class="qualification__modal">
+                  <div class="qualification__modal" id="modal-slu">
                     <div class="qualification__modal-content">
                       <p style="text-align:center">
                         <img src="assets/img/Experience/slu.png" alt="Saint Louis University">
@@ -774,11 +774,10 @@
                   <div class="qualification__calendar">
                     <i class="uil uil-calendar-alt"></i> February 2023 - May 2023
                   </div>
-                  <!-- Modal trigger and modal -->
-                  <span class="button button--flex button--small button--link qualification__button-modal">
+                  <span class="button button--flex button--small button--link qualification__button-modal" data-modal-target="#modal-mindobx">
                     What I did here <i class="uil uil-arrow-right button__icon"></i>
                   </span>
-                  <div class="qualification__modal">
+                  <div class="qualification__modal" id="modal-mindobx">
                     <div class="qualification__modal-content">
                       <p style="text-align:center">
                         <img src="assets/img/Experience/mindobx.png" alt="Artificial Mindbox">
@@ -814,11 +813,10 @@
                   <div class="qualification__calendar">
                     <i class="uil uil-calendar-alt"></i> September 2020 - July 2022
                   </div>
-                  <!-- Modal trigger and modal -->
-                  <span class="button button--flex button--small button--link qualification__button-modal">
+                  <span class="button button--flex button--small button--link qualification__button-modal" data-modal-target="#modal-ero">
                     What I did here <i class="uil uil-arrow-right button__icon"></i>
                   </span>
-                  <div class="qualification__modal">
+                  <div class="qualification__modal" id="modal-ero">
                     <div class="qualification__modal-content">
                       <p style="text-align:center">
                         <img src="assets/img/Experience/ero.jpeg" alt="ERO Power LLP">
@@ -1115,25 +1113,25 @@
           }
         });
 
-        // Modal functionality
+        // Modal functionality using data-modal-target attributes
         const modalBtns = document.querySelectorAll(".qualification__button-modal");
-        const modals = document.querySelectorAll(".qualification__modal");
-        const modalCloseBtns = document.querySelectorAll(".qualification__modal-close");
-
         modalBtns.forEach((btn) => {
           btn.addEventListener("click", function () {
-            const container = this.closest(".qualification__data");
-            const modal = container ? container.querySelector(".qualification__modal") : null;
-            if (modal) {
-              modal.classList.add("active-modal");
-            } else {
-              console.warn("Modal not found for button:", this);
+            const targetSelector = this.getAttribute("data-modal-target");
+            if (targetSelector) {
+              const modal = document.querySelector(targetSelector);
+              if (modal) {
+                modal.classList.add("active-modal");
+              } else {
+                console.warn("Modal not found:", targetSelector);
+              }
             }
           });
         });
 
-        modalCloseBtns.forEach((closeBtn) => {
-          closeBtn.addEventListener("click", function () {
+        const modalCloseBtns = document.querySelectorAll(".qualification__modal-close");
+        modalCloseBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
             const modal = this.closest(".qualification__modal");
             if (modal) {
               modal.classList.remove("active-modal");
@@ -1143,8 +1141,9 @@
 
         // Close modal when clicking outside modal content
         window.addEventListener("click", function (event) {
+          const modals = document.querySelectorAll(".qualification__modal.active-modal");
           modals.forEach((modal) => {
-            if (modal.classList.contains("active-modal") && !modal.querySelector(".qualification__modal-content").contains(event.target)) {
+            if (!modal.querySelector(".qualification__modal-content").contains(event.target)) {
               modal.classList.remove("active-modal");
             }
           });
