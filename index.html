@@ -370,9 +370,12 @@
       padding: 1rem;
       border-radius: .5rem;
       font-weight: var(--font-medium);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .button:hover {
       background-color: var(--first-color-alt);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     .button__icon {
       font-size: 1.25rem;
@@ -582,7 +585,7 @@
       visibility: hidden;
       transition: .3s;
     }
-    /* Active Modal: When modal is shown, add class 'active-modal' */
+    /* When modal is active, add .active-modal */
     .active-modal {
       opacity: 1;
       visibility: visible;
@@ -2281,18 +2284,15 @@
         setTimeout(() => preloader.style.display = 'none', 500);
       });
 
-      // Modal functionality with debugging logs
+      // Modal functionality
       const modalBtns = document.querySelectorAll('.qualification__button-modal');
       const modalCloseBtns = document.querySelectorAll('.qualification__modal-close');
-      
+
       modalBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
-          console.log("Modal button clicked:", btn);
-          // Use parentElement to locate the modal within the same block
-          const parentData = btn.parentElement;
-          console.log("Parent container:", parentData);
-          const modal = parentData.querySelector('.qualification__modal');
-          console.log("Modal found:", modal);
+          // Use closest() to get the container with class .qualification__data
+          const container = btn.closest('.qualification__data');
+          const modal = container.querySelector('.qualification__modal');
           if (modal) {
             modal.classList.add('active-modal');
           } else {
