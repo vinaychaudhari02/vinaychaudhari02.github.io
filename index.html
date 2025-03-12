@@ -2291,7 +2291,7 @@
       modalBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
           // Use closest() to get the container with class .qualification__data
-          const container = btn.closest('.qualification__data');
+          const container = btn.parentElement;
           const modal = container.querySelector('.qualification__modal');
           if (modal) {
             modal.classList.add('active-modal');
