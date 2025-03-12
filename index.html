@@ -558,131 +558,33 @@
     .qualification__active[data-content] {
       display: block;
     }
-    .qualification__button.qualification__active {
+    .qualification__active-tab {
       color: var(--first-color);
     }
     .qualification__button {
       cursor: pointer;
       font-size: var(--small-font-size);
     }
-    .qualification__button-modal {
-      cursor: pointer;
-      font-size: var(--small-font-size);
+    /* New inline details styling */
+    .qualification__details {
+      margin-top: 1rem;
     }
-    .qualification__modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.5);
+    .qualification__details p {
+      margin-bottom: 1rem;
+    }
+    .qualification__works {
+      list-style: none;
+      padding-left: 0;
+    }
+    .qualification__work {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-      z-index: var(--z-modal);
-      opacity: 0;
-      visibility: hidden;
-      transition: .3s;
-    }
-    /* When modal is active, add .active-modal */
-    .active-modal {
-      opacity: 1;
-      visibility: visible;
-    }
-    .qualification__modal-content {
-      position: relative;
-      background-color: var(--container-color);
-      padding: 1.5rem;
-      margin: 0.5rem;
-      border-radius: .5rem;
-      overflow: auto;
-      max-height: 100%;
-    }
-    .qualification__modal-title {
-      font-size: var(--h3-font-size);
-      font-weight: var(--font-medium);
-      margin-bottom: var(--mb-1-5);
-    }
-    .qualification__modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: var(--first-color);
-      cursor: pointer;
-    }
-    .qualification__modal-works {
-      row-gap: 1rem;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-    }
-    .qualification__modal-work {
-      display: flex;
-    }
-    .qualification__modal-icon {
-      color: var(--first-color);
-      margin-right: var(--mb-0-25);
-    }
-
-    /* PORTFOLIO */
-    .portfolio__container {
-      overflow: initial;
-    }
-    .portfolio__content {
-      padding: 0 1.5rem;
-    }
-    .portfolio__img {
-      width: 265px;
-      border-radius: .5rem;
-      justify-self: center;
-    }
-    .portfolio__title {
-      font-size: var(--h3-font-size);
-      margin-bottom: var(--mb-0-5);
-    }
-    .portfolio__subtitle {
+      margin-bottom: 0.5rem;
       font-size: var(--small-font-size);
-      margin-bottom: var(--mb-1);
     }
-    .portfolio__description {
-      margin-bottom: var(--mb-1-5);
-      font-size: var(--smaller-font-size);
-    }
-    .portfolio__button {
-      margin-top: var(--mb-1-5);
-    }
-    .portfolio__button:hover .button__icon {
-      transform: translateX(.25rem);
-    }
-    .portfolio__links {
+    .qualification__work i {
+      margin-right: 0.5rem;
       color: var(--first-color);
-    }
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
-      content:'';
-    }
-    .swiper-portfolio-icon {
-      font-size: 2rem;
-      color: var(--first-color);
-    }
-    .swiper-button-prev {
-      left: -0.5rem;
-    }
-    .swiper-button-next {
-      right: -0.5rem;
-    }
-    .swiper-container-horizontal > .swiper-pagination-bullets {
-      bottom: -2.5rem;
-    }
-    .swiper-pagination-bullets-active {
-      background-color: var(--first-color);
-    }
-    .swiper-button-prev,
-    .swiper-button-next,
-    .swiper-pagination-bullet {
-      outline: none;
     }
 
     /* RESEARCH */
@@ -806,35 +708,6 @@
     .swiper-blog-icon {
       font-size: 2rem;
       color: var(--first-color);
-    }
-
-    /* ACTIVE MODAL */
-    .active-modal {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* CONTACT */
-    .contact__container {
-      row-gap: 2rem;
-    }
-    .contact__information {
-      display: flex;
-      margin-bottom: var(--mb-0-25);
-    }
-    .contact__icon {
-      font-size: 2rem;
-      color: var(--first-color);
-      margin-right: var(--mb-0-75);
-    }
-    .contact__title {
-      font-size: var(--h3-font-size);
-      font-weight: var(--font-medium);
-      text-align: left;
-    }
-    .contact__subtitle {
-      font-size: var(--small-font-size);
-      color: var(--text-color-light);
     }
 
     /* FOOTER */
@@ -1133,7 +1006,7 @@
       }
       .portfolio__content,
       .blog__content{
-          align-items: center;
+          column-gap: 5rem;
       }
       .footer__container{
           grid-template-columns: repeat(3, 1fr);
@@ -1862,31 +1735,25 @@
                 <div class="qualification__calendar">
                   <i class="uil uil-calendar-alt"></i> August 2024 - Present
                 </div>
-                <span class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <!-- Modal -->
-                <div class="qualification__modal">
-                  <div class="qualification__modal-content">
-                    <p style="text-align:center">
-                      <img src="assets/img/Experience/danforth.jpeg" alt="Donald Danforth Plant Science Center">
-                    </p>
-                    <i class="uil uil-times qualification__modal-close"></i>
-                    <ul class="qualification__modal-works grid">
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Engineered TensorFlow/PyTorch models for sorghum biomass prediction.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Optimized GNN and LSTM models, boosting predictive accuracy.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Integrated genomic data on AWS for improved scalability.</p>
-                      </li>
-                    </ul>
-                  </div>
+                <!-- Inline details -->
+                <div class="qualification__details">
+                  <p style="text-align:center">
+                    <img src="assets/img/Experience/danforth.jpeg" alt="Donald Danforth Plant Science Center">
+                  </p>
+                  <ul class="qualification__works grid">
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Engineered TensorFlow/PyTorch models for sorghum biomass prediction.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Optimized GNN and LSTM models, boosting predictive accuracy.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Integrated genomic data on AWS for improved scalability.</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -1907,31 +1774,25 @@
                 <div class="qualification__calendar">
                   <i class="uil uil-calendar-alt"></i> September 2023 - Present
                 </div>
-                <span class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <!-- Modal -->
-                <div class="qualification__modal">
-                  <div class="qualification__modal-content">
-                    <p style="text-align:center">
-                      <img src="assets/img/Experience/slu.png" alt="Saint Louis University">
-                    </p>
-                    <i class="uil uil-times qualification__modal-close"></i>
-                    <ul class="qualification__modal-works grid">
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Optimized algorithms for processing 170K+ proteins & RNAs.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Fine-tuned LLMs for improved RNA motif classification.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Automated data pipelines using Python and Shell scripting.</p>
-                      </li>
-                    </ul>
-                  </div>
+                <!-- Inline details -->
+                <div class="qualification__details">
+                  <p style="text-align:center">
+                    <img src="assets/img/Experience/slu.png" alt="Saint Louis University">
+                  </p>
+                  <ul class="qualification__works grid">
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Optimized algorithms for processing 170K+ proteins & RNAs.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Fine-tuned LLMs for improved RNA motif classification.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Automated data pipelines using Python and Shell scripting.</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -1943,31 +1804,25 @@
                 <div class="qualification__calendar">
                   <i class="uil uil-calendar-alt"></i> February 2023 - May 2023
                 </div>
-                <span class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <!-- Modal -->
-                <div class="qualification__modal">
-                  <div class="qualification__modal-content">
-                    <p style="text-align:center">
-                      <img src="assets/img/Experience/mindobx.png" alt="Artificial Mindbox">
-                    </p>
-                    <i class="uil uil-times qualification__modal-close"></i>
-                    <ul class="qualification__modal-works grid">
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Performed advanced data analysis for customer segmentation.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Deployed NLP-based sentiment analysis models.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Built robust ML pipelines to improve data quality.</p>
-                      </li>
-                    </ul>
-                  </div>
+                <!-- Inline details -->
+                <div class="qualification__details">
+                  <p style="text-align:center">
+                    <img src="assets/img/Experience/mindobx.png" alt="Artificial Mindbox">
+                  </p>
+                  <ul class="qualification__works grid">
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Performed advanced data analysis for customer segmentation.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Deployed NLP-based sentiment analysis models.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Built robust ML pipelines to improve data quality.</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div>
@@ -1988,35 +1843,29 @@
                 <div class="qualification__calendar">
                   <i class="uil uil-calendar-alt"></i> September 2020 - July 2022
                 </div>
-                <span class="button button--flex button--small button--link qualification__button-modal">
-                  What I did here <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <!-- Modal -->
-                <div class="qualification__modal">
-                  <div class="qualification__modal-content">
-                    <p style="text-align:center">
-                      <img src="assets/img/Experience/ero.jpeg" alt="ERO Power LLP">
-                    </p>
-                    <i class="uil uil-times qualification__modal-close"></i>
-                    <ul class="qualification__modal-works grid">
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Directed a team analyzing billing and customer datasets.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Developed ML models to optimize power usage strategies.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Implemented data-driven energy-saving strategies.</p>
-                      </li>
-                      <li class="qualification__modal-work">
-                        <i class="uil uil-check-circle qualification__modal-icon"></i>
-                        <p>Enhanced scalability of energy management systems with software solutions.</p>
-                      </li>
-                    </ul>
-                  </div>
+                <!-- Inline details -->
+                <div class="qualification__details">
+                  <p style="text-align:center">
+                    <img src="assets/img/Experience/ero.jpeg" alt="ERO Power LLP">
+                  </p>
+                  <ul class="qualification__works grid">
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Directed a team analyzing billing and customer datasets.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Developed ML models to optimize power usage strategies.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Implemented data-driven energy-saving strategies.</p>
+                    </li>
+                    <li class="qualification__work">
+                      <i class="uil uil-check-circle"></i>
+                      <p>Enhanced scalability of energy management systems with software solutions.</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -2274,7 +2123,7 @@
     });
   </script>
 
-  <!-- MODAL, TABS, DARK MODE & PRELOADER SCRIPT -->
+  <!-- TABS, DARK MODE & PRELOADER SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Preloader fade-out
@@ -2282,29 +2131,6 @@
         const preloader = document.getElementById('preloader');
         preloader.style.opacity = '0';
         setTimeout(() => preloader.style.display = 'none', 500);
-      });
-
-      // Modal functionality
-      const modalBtns = document.querySelectorAll('.qualification__button-modal');
-      const modalCloseBtns = document.querySelectorAll('.qualification__modal-close');
-
-      modalBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          // Use closest() to get the container with class .qualification__data
-          const container = btn.closest('.qualification__data');
-          const modal = container.querySelector('.qualification__modal');
-          if (modal) {
-            modal.classList.add('active-modal');
-          } else {
-            console.warn("Modal not found for button:", btn);
-          }
-        });
-      });
-      
-      modalCloseBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener('click', () => {
-          closeBtn.closest('.qualification__modal').classList.remove('active-modal');
-        });
       });
 
       // Tab functionality for Qualification section
